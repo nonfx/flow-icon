@@ -14,6 +14,7 @@ function sliceIntoChunks(arr, chunkSize) {
 }
 
 const indexFileImports = new Set();
+indexFileImports.add('import { ConfigUtil } from "@cldcvr/flow-core" ;');
 const indexFileExports = new Set();
 /**
  * Get document of specified file Id
@@ -122,9 +123,13 @@ getDocument()
 
           const indexFile = `${Array.from(indexFileImports).join(
             "\n"
-          )} \n export default { ${Array.from(indexFileExports).join(
+          )} \n const IconPack= { ${Array.from(indexFileExports).join(
             ","
-          )} } as Record<string,string>;`;
+          )} } as Record<string,string>;
+		  
+		  ConfigUtil.setConfig({ iconPack: {...IconPack,...ConfigUtil.getConfig().iconPack} });
+		  export default IconPack;
+		   `;
 
           /**
            * Writing index file for package
