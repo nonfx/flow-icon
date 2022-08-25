@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@cldcvr/flow-core@latest":
+"@cldcvr/flow-core@*":
   version "0.2.8"
   resolved "https://pkgs.dev.azure.com/cldcvrdevusa/_packaging/FlowLibraryFeed/npm/registry/@cldcvr/flow-core/-/flow-core-0.2.8.tgz#dd5409599b14511299ada11e133239e3d2195262"
   integrity sha1-3VQJWZsUURKZraEeEzI549IZUmI=
