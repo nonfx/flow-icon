@@ -6,15 +6,21 @@ make sure that you already installed `@cldcvr/flow-core` if not then run followi
 yarn add @cldcvr/flow-core
 ```
 
-### Install 
+### Install one or multiple packages  
 ```
-yarn add @cldcvr/flow-icon
+yarn add @cldcvr/flow-system-icon
+yarn add @cldcvr/flow-product-icon
+yarn add @cldcvr/flow-aws-icon
+yarn add @cldcvr/flow-gcp-icon
 ```
 
 ### Usage 
-Register icon pack in your applilcation startup file like below.
+Register installed icon pack in your applilcation startup file like below.
 ```JavaScript
-	import "@cldcvr/flow-icon";
+	import "@cldcvr/flow-system-icon";
+	import "@cldcvr/flow-product-icon";
+	import "@cldcvr/flow-aws-icon";
+	import "@cldcvr/flow-gcp-icon";
 ```
 
 ### Development
