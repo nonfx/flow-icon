@@ -17,4 +17,4 @@ jobs:
           encodedString: ${{ secrets.NPMRC }}
       - uses: actions/setup-node@v2
       - run: yarn install
-      - run: yarn publish-packages
+      - run: yarn update-packages && yarn publish-packages

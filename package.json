@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "publish-packages": "ts-node-esm package-builder/create-packages.ts && yarn &&  npx lerna publish minor --no-private"
+    "update-packages": "ts-node-esm package-builder/create-packages.ts && yarn",
+    "publish-packages": "npx lerna publish minor --no-private"
   },
   "keywords": [
     "icons"
