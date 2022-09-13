@@ -1,0 +1,25 @@
+{
+			"compilerOptions": {
+			  "module": "esnext",
+			  "lib": ["es2017", "dom", "dom.iterable","ES2021.String"],
+			  "declaration": true,
+			  "emitDeclarationOnly": true,
+			  "outDir": "dist/types",
+			  "baseUrl": ".",
+			  "strict": true,
+			  "noUnusedLocals": true,
+			  "noUnusedParameters": true,
+			  "noImplicitReturns": true,
+			  "noFallthroughCasesInSwitch": true,
+			  "moduleResolution": "node",
+			  "isolatedModules": true,
+			  "allowSyntheticDefaultImports": true,
+			  "experimentalDecorators": true,
+			  "forceConsistentCasingInFileNames": true,
+			  "useDefineForClassFields": false,
+			  "skipLibCheck": true,
+			  "target": "ESNext",
+			  "resolveJsonModule": true
+			},  
+			"include": ["svg/**/*.ts"],
+		  }

@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
     "module": "esnext",
-    "lib": ["es2017", "dom", "dom.iterable"],
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "outDir": "dist/types",
+    "lib": ["es2017", "dom", "dom.iterable", "ES2021.String"],
+    "declaration": false,
+    "outDir": "package-builder/dist",
     "baseUrl": ".",
     "strict": true,
     "noUnusedLocals": true,
@@ -20,5 +19,7 @@
     "skipLibCheck": true,
     "target": "ESNext",
     "resolveJsonModule": true
-  }
+  },
+  "include": ["package-builder/**/*.ts"],
+  "exclude": ["node_modules", "packages"]
 }

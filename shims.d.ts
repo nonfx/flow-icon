@@ -1,1 +1,1 @@
-declare module "@cldcvr/flow-core";
+declare module "vite";

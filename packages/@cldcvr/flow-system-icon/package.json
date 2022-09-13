@@ -1,0 +1,41 @@
+{
+				"name": "@cldcvr/flow-system-icon",
+				"version": "0.0.1",
+				"description": "This package contains free set icons to use in `@cldcvr/flow-core`",
+				"main": "dist/flow-icon.es.js",
+				"module": "dist/flow-icon.es.js",
+				"types": "./dist/types/index.d.ts",
+				"scripts": {
+				  "test": "echo 'Error: no test specified' && exit 1",
+				  "build": "vite build --emptyOutDir && tsc -emitDeclarationOnly",
+				  "prepublishOnly": "yarn build"
+				},
+				"keywords": [
+				  "icons"
+				],
+				"author": "",
+				"license": "MIT",
+				"dependencies": {
+				  "@cldcvr/flow-core": "*"
+				},
+				"devDependencies": {
+				  "axios": "^0.27.2",
+				  "fs": "^0.0.1-security",
+				  "lit-html": "^2.2.7",
+				  "prettier": "^2.7.1",
+				  "typescript": "^4.7.4",
+				  "vite": "^3.0.4"
+				},
+				"peerDependencies": {
+				  "@cldcvr/flow-core": "*"
+				},
+				"repository": {
+				  "type": "git",
+				  "url": "git@github.com:cldcvr/flow-icon.git"
+				},
+				"publishConfig": {
+				  "access": "restricted",
+				  "registry": "https://pkgs.dev.azure.com/cldcvrdevusa/_packaging/FlowLibraryFeed/npm/registry/",
+				  "always-auth": true
+				}
+			  }
