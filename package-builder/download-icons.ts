@@ -134,7 +134,7 @@ export default async function downloadIcons(nodeId: string, pkg: string) {
               });
               await Promise.all(promises);
             }
-            process.stdout.clearLine(0);
+
             process.stdout.write(
               `\x1b[36m \r${pkg} Creating index.ts for packaging... \n \n `
             );
