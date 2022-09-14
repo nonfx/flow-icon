@@ -18,3 +18,7 @@ jobs:
       - uses: actions/setup-node@v2
       - run: yarn install
       - run: yarn publish-packages
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GHE_API_URL: ${{ secrets.GHE_API_URL }}
+          GHE_VERSION: ${{ secrets.GHE_VERSION }}
