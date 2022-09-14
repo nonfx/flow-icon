@@ -24,7 +24,10 @@ type IconUrl = {
 export default async function downloadIcons(nodeId: string, pkg: string) {
   const indexFileImports = new Set();
   indexFileImports.add('import { ConfigUtil } from "@cldcvr/flow-core" ;');
-  const indexFileExports = new Set();
+  indexFileImports.add('import IconPack from "./icon-pack" ;');
+
+  const iconPackExports = new Set();
+  const iconPackImports = new Set();
   /**
    * Get document of specified file Id
    */
@@ -105,10 +108,10 @@ export default async function downloadIcons(nodeId: string, pkg: string) {
                         "-",
                         "_"
                       );
-                      indexFileImports.add(
+                      iconPackImports.add(
                         `import ${iconNameAsVariable} from "./svg/${iconNameMapping[id]}";`
                       );
-                      indexFileExports.add(
+                      iconPackExports.add(
                         `"${iconNameMapping[id]}": ${iconNameAsVariable}`
                       );
                       /**
@@ -139,16 +142,30 @@ export default async function downloadIcons(nodeId: string, pkg: string) {
               `\x1b[36m \r${pkg} Creating index.ts for packaging... \n \n `
             );
 
-            const indexFile = `${Array.from(indexFileImports).join(
+            const iconPackFile = `${Array.from(iconPackImports).join(
               "\n"
-            )} \n const IconPack= { ${Array.from(indexFileExports).join(
+            )} \n const IconPack= { ${Array.from(iconPackExports).join(
               ","
             )} } as Record<string,string>;
-		  
+		  export default IconPack;
+		   `;
+            const indexFile = `
+			${Array.from(indexFileImports).join("\n")} \n
 		  ConfigUtil.setConfig({ iconPack: {...IconPack,...ConfigUtil.getConfig().iconPack} });
 		  export default IconPack;
 		   `;
-
+            /**
+             * Writing icon pack file for package
+             */
+            fs.writeFileSync(
+              `${__dirname}/../packages/${pkg}/icon-pack.ts`,
+              prettier.format(iconPackFile, {
+                printWidth: 100,
+                singleQuote: true,
+                tabWidth: 4,
+                parser: "typescript",
+              })
+            );
             /**
              * Writing index file for package
              */

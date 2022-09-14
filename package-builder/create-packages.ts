@@ -28,7 +28,7 @@ for (const pkg of config.packages) {
 				"types": "./dist/types/index.d.ts",
 				"scripts": {
 				  "test": "echo 'Error: no test specified' && exit 1",
-				  "build": "vite build --emptyOutDir && tsc -emitDeclarationOnly",
+				  "build": "vite build --emptyOutDir && tsc",
 				  "prepublishOnly": "yarn build"
 				},
 				"keywords": [
@@ -70,7 +70,6 @@ for (const pkg of config.packages) {
 			  "module": "esnext",
 			  "lib": ["es2017", "dom", "dom.iterable","ES2021.String"],
 			  "declaration": true,
-			  "emitDeclarationOnly": true,
 			  "outDir": "dist/types",
 			  "baseUrl": ".",
 			  "strict": true,
@@ -88,7 +87,8 @@ for (const pkg of config.packages) {
 			  "target": "ESNext",
 			  "resolveJsonModule": true
 			},  
-			"include": ["svg/**/*.ts"],
+			"include": ["./**/*.ts"],
+			"exclude": ["vite.config.ts"]
 		  }`
     );
     fs.writeFileSync(
@@ -114,6 +114,10 @@ for (const pkg of config.packages) {
 		  },
 		},
 	  });`
+    );
+    fs.writeFileSync(
+      `${__dirname}/../packages/${pkg.name}/shims.d.ts`,
+      `declare module '@cldcvr/flow-core';`
     );
   } catch (err) {
     console.error(err);
