@@ -9,6 +9,9 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v2
+      - uses: fregante/setup-git-token@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       # Setup original .npmrc file to download packages
       - uses: timheuer/base64-to-file@v1.1
         with:
@@ -18,7 +21,3 @@ jobs:
       - uses: actions/setup-node@v2
       - run: yarn install
       - run: yarn publish-packages
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GHE_API_URL: ${{ secrets.GHE_API_URL }}
-          GHE_VERSION: ${{ secrets.GHE_VERSION }}
