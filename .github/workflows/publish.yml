@@ -9,11 +9,6 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v2
-      - uses: fregante/setup-git-token@v1
-        with:
-          name: vikas-cldcvr
-          email: vikas@cldcvr.com
-          token: ${{ secrets.GITHUB_TOKEN }}
       # Setup original .npmrc file to download packages
       - uses: timheuer/base64-to-file@v1.1
         with:
@@ -22,4 +17,10 @@ jobs:
           encodedString: ${{ secrets.NPMRC }}
       - uses: actions/setup-node@v2
       - run: yarn install
-      - run: yarn publish-packages
+      - name: "Version and publish" # Interesting step
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git config user.name "${{ github.actor }}"
+        git config user.email "${{ github.actor}}@users.noreply.github.com"
+        yarn publish-packages
