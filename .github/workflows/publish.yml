@@ -23,4 +23,4 @@ jobs:
         run: |
           git config user.name "${{ github.actor }}"
           git config user.email "vikas@cldcvr.com"
-          yarn publish-packages
+          npx lerna publish patch --no-private --yes
