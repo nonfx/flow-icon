@@ -26,4 +26,6 @@ jobs:
           git config user.name "${{ github.actor }}"
           git config user.email "vikas@cldcvr.com"
           yarn update-packages
+          git add -A
+          git commit -m "Icons updated by GithubActions"
           yarn publish-packages
