@@ -1,32 +1,40 @@
-## @cldcvr/flow-icon
-Official icon library for `@cldcvr/flow-core` design system. Icons are downloaded from figma and packaged up and published to npm.
-### prerequisite
-make sure that you already installed `@cldcvr/flow-core` if not then run following command.
+# @cldcvr/flow-icon
+
+**About Flow**
+Flow is a design framework that aims to be the fastest way to go from prototype to implementation. You can learn more about [@cldcvr/flow-core](https://github.com/cldcvr/flow-core/blob/main/ABOUT.md).
+
+**Flow icons**
+Icons are consumed as a depedency for the `@cldcvr/flow-core` design framework. Icons are broken into packages to reduce bloat and allow for custom/community packs. Visit the [CONTRIBUTING.md](https://github.com/cldcvr/flow-icon/blob/main/CONTRIBUTING.md) to learn how to contribute.
+
+All icon packages that start with **"flow-"** are maintained by the flow-core design team.
+
+## Usage
+Make sure that you have [@cldcvr/flow-core](https://github.com/cldcvr/flow-core/) installed.
+
+To consume any icon pack, you need to install it to your project. Use the command below and replace the [place-holder-pack-name] with the desired package name.
+
 ```
-yarn add @cldcvr/flow-core
+yarn add @cldcvr/[place-holder-pack-name]
 ```
 
-### Install one or multiple packages  
+After installing the icon pack, register/import the icon pack into your project.
+
 ```
-yarn add @cldcvr/flow-system-icon
-yarn add @cldcvr/flow-product-icon
-yarn add @cldcvr/flow-aws-icon
-yarn add @cldcvr/flow-gcp-icon
+import "@cldcvr/[place-holder-pack-name]";"
 ```
 
-### Usage 
-Register installed icon pack in your applilcation startup file like below.
-```JavaScript
-	import "@cldcvr/flow-system-icon";
-	import "@cldcvr/flow-product-icon";
-	import "@cldcvr/flow-aws-icon";
-	import "@cldcvr/flow-gcp-icon";
-```
+## Icon packs
+* Basic icon pack [@cldcvr/flow-system-icon] | [view](fimga link here)
+* Product logos [@cldcvr/flow-product-icon] | [view](fimga link here)
+* AWS cloud icons [@cldcvr/flow-aws-icon] | [view](fimga link here)
+* GCP cloud icons [@cldcvr/flow-gcp-icon] | [view](fimga link here)
+* Azure cloud (coming soon)
+* AWS data icons (coming soon)
+* GCP data icons (coming soon)
 
-### Development
-If you wish to create separate icon pack for `@cldcvr/flow-core` then fork this library follow these steps.
 
-1. update `./figma/config.js` file with your respective icon file and token.
-2. update package name and version in `package.json`.
-3. If you are developing private package then you need `.npmrc` file.
-4. run `yarn && yarn publish`.
+## Contribute
+You could create your own icon pack or contribute to existing. You can [learn more here](https://github.com/cldcvr/flow-icon/blob/main/CONTRIBUTING.md).
+
+All icon packages that start with **"flow-"** are maintained by the flow-core design team. These icons are mainatined in Flows Figma icon file and is direclty synced to the package repo. If you would like to contribute to any flow mainatined icon pack. Write into flow@cldcvr.com 
+
