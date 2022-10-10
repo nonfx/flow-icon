@@ -34,7 +34,7 @@ for (const pkg of config.packages) {
 				"keywords": [
 				  "icons"
 				],
-				"author": "",
+				"author": "@cldcvr",
 				"license": "MIT",
 				"dependencies": {
 				  "@cldcvr/flow-core": "*"
@@ -51,14 +51,13 @@ for (const pkg of config.packages) {
 				  "@cldcvr/flow-core": "*"
 				},
 				"repository": {
-				  "type": "git",
-				  "url": "git@github.com:cldcvr/flow-icon.git"
-				},
+					"type": "git",
+					"url": "git+ssh://github.com/cldcvr/flow-icon.git"
+				  },
 				"publishConfig": {
-				  "access": "restricted",
-				  "registry": "https://pkgs.dev.azure.com/cldcvrdevusa/_packaging/FlowLibraryFeed/npm/registry/",
-				  "always-auth": true
-				}
+					"access": "public",
+					"registry": "https://registry.npmjs.org"
+				  }
 			  }`
       );
     }
