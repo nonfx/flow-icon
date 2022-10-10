@@ -12,7 +12,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-packages": "ts-node-esm package-builder/create-packages.ts && yarn",
     "build-packages": "yarn workspaces run build",
-    "publish-packages": "npx lerna publish patch --no-private --yes --verify-access --registry https://registry.npmjs.org"
+    "publish-packages": "npx lerna publish patch --no-private --yes --no-verify-access --registry https://registry.npmjs.org"
   },
   "keywords": [
     "icons"
