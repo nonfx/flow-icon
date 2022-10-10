@@ -38,11 +38,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:cldcvr/flow-icon.git"
+    "url": "git+ssh://github.com/cldcvr/flow-icon.git"
   },
   "publishConfig": {
-    "access": "restricted",
-    "registry": "https://pkgs.dev.azure.com/cldcvrdevusa/_packaging/FlowLibraryFeed/npm/registry/",
-    "always-auth": true
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }
