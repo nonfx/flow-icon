@@ -12,7 +12,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-packages": "ts-node-esm package-builder/create-packages.ts && yarn",
     "build-packages": "yarn workspaces run build",
-    "publish-packages": "npx lerna publish patch --no-private --yes --no-verify-access --registry https://registry.npmjs.org"
+    "release": "yarn build-packages && yarn changeset publish"
   },
   "keywords": [
     "icons"
@@ -23,11 +23,11 @@
     "@cldcvr/flow-core": "*"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.25.0",
     "@types/node": "^18.7.17",
     "@types/prettier": "^2.7.0",
     "axios": "^0.27.2",
     "fs": "^0.0.1-security",
-    "lerna": "^5.5.1",
     "lit-html": "^2.2.7",
     "prettier": "^2.7.1",
     "ts-node": "^10.9.1",
