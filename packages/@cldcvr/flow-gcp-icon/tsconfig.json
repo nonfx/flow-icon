@@ -19,7 +19,7 @@
 			  "skipLibCheck": true,
 			  "target": "ESNext",
 			  "resolveJsonModule": true
-			},  
+			},
 			"include": ["./**/*.ts"],
 			"exclude": ["vite.config.ts"]
 		  }
