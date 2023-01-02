@@ -27,13 +27,13 @@ const generatePackageJsonContents = (pkgName: string) => {
       scripts: {
         test: "echo 'Error: no test specified' && exit 1",
         build: "vite build --emptyOutDir && tsc",
-        prepublishOnly: "yarn build"
+        prepublishOnly: "yarn build",
       },
       keywords: ["icons"],
       author: "@cldcvr",
       license: "MIT",
       dependencies: {
-        "@cldcvr/flow-core": "*"
+        "@cldcvr/flow-core": "*",
       },
       devDependencies: {
         axios: "^0.27.2",
@@ -41,20 +41,20 @@ const generatePackageJsonContents = (pkgName: string) => {
         "lit-html": "^2.2.7",
         prettier: "^2.7.1",
         typescript: "^4.7.4",
-        vite: "^3.0.4"
+        vite: "^3.0.4",
       },
       peerDependencies: {
-        "@cldcvr/flow-core": "*"
+        "@cldcvr/flow-core": "*",
       },
       repository: {
         type: "git",
-        url: "git+ssh://github.com/cldcvr/flow-icon.git"
+        url: "git+ssh://github.com/cldcvr/flow-icon.git",
       },
       publishConfig: {
-        access: process.env.CUSTOM_REGISTRY_URL ? "private" : "public",
+        access: "public",
         registry:
-          process.env.CUSTOM_REGISTRY_URL ?? "https://registry.npmjs.org"
-      }
+          process.env.CUSTOM_REGISTRY_URL ?? "https://registry.npmjs.org",
+      },
     },
     null,
     2
