@@ -15,12 +15,15 @@ yarn add @cldcvr/flow-gcp-icon
 ```
 
 ### Usage 
-Register installed icon pack in your applilcation startup file like below.
+Register installed icon pack in your applilcation startup file after importing `@cldcvr/flow-core` like below.
 ```JavaScript
-	import "@cldcvr/flow-system-icon";
-	import "@cldcvr/flow-product-icon";
-	import "@cldcvr/flow-aws-icon";
-	import "@cldcvr/flow-gcp-icon";
+import("@cldcvr/flow-core").then(async () => {
+	await import("@cldcvr/flow-system-icon");
+	await import("@cldcvr/flow-product-icon");
+	await import("@cldcvr/flow-aws-icon");
+	await import("@cldcvr/flow-gcp-icon");
+  //your application startup code
+});
 ```
 
 ### Development
