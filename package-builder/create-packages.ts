@@ -115,7 +115,7 @@ for (const pkg of config.packages) {
 		  },
 		  // outDir: "dist",
 		  rollupOptions: {
-			external: ["@cldcvr/flow-core"],
+			external: ["@cldcvr/flow-core",/^lit/],
 			output: {
 			  globals: {
 				"@cldcvr/flow-core": "@cldcvr/flow-core",
