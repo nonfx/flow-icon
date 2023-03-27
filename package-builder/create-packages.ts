@@ -3,10 +3,17 @@ import config from "./config.js";
 import * as fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import semver from "semver";
 const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
 
+const loadJSON = (path: string) =>
+  JSON.parse(fs.readFileSync(new URL(path, import.meta.url)).toString());
+
+const params = JSON.parse(process.env.npm_config_argv as string).original;
+const packageName = params[1].replace("--", "");
+const versionType = params[2].replace("--", "");
 /**
  *
  * @param pkgName The npm package name
@@ -14,11 +21,11 @@ const __dirname = path.dirname(__filename);
  *
  * NOTE: The registry can be decided by setting the `CUSTOM_REGISTRY_URL` env flag
  */
-const generatePackageJsonContents = (pkgName: string) => {
+const generatePackageJsonContents = (pkgName: string, version: string) => {
   return JSON.stringify(
     {
       name: pkgName,
-      version: "0.0.1",
+      version,
       description:
         "This package contains free set icons to use in `@cldcvr/flow-core`",
       main: "dist/flow-icon.es.js",
@@ -65,17 +72,26 @@ const generatePackageJsonContents = (pkgName: string) => {
  * downloading icons
  */
 for (const pkg of config.packages) {
-  await downloadIcons(pkg.nodeId, pkg.name);
+  if (packageName === pkg.name || packageName === "all") {
+    console.log("Updating...", pkg.name, versionType);
+    await downloadIcons(pkg.nodeId, pkg.name);
+    const pkgJsonFilePath = `${__dirname}/../packages/${pkg.name}/package.json`;
 
-  const pkgJsonFilePath = `${__dirname}/../packages/${pkg.name}/package.json`;
+    try {
+      const packageJson = loadJSON(pkgJsonFilePath);
 
-  try {
-    if (!fs.existsSync(pkgJsonFilePath))
-      fs.writeFileSync(pkgJsonFilePath, generatePackageJsonContents(pkg.name));
+      const newversion = semver.inc(packageJson.version, versionType);
 
-    fs.writeFileSync(
-      `${__dirname}/../packages/${pkg.name}/tsconfig.json`,
-      `{
+      if (newversion) {
+        fs.writeFileSync(
+          pkgJsonFilePath,
+          generatePackageJsonContents(pkg.name, newversion)
+        );
+      }
+
+      fs.writeFileSync(
+        `${__dirname}/../packages/${pkg.name}/tsconfig.json`,
+        `{
 			"compilerOptions": {
 			  "module": "esnext",
 			  "lib": ["es2017", "dom", "dom.iterable","ES2021.String"],
@@ -100,10 +116,10 @@ for (const pkg of config.packages) {
 			"include": ["./**/*.ts"],
 			"exclude": ["vite.config.ts"]
 		  }`
-    );
-    fs.writeFileSync(
-      `${__dirname}/../packages/${pkg.name}/vite.config.ts`,
-      `import { defineConfig } from "vite";
+      );
+      fs.writeFileSync(
+        `${__dirname}/../packages/${pkg.name}/vite.config.ts`,
+        `import { defineConfig } from "vite";
 
 	  export default defineConfig({
 		build: {
@@ -124,12 +140,13 @@ for (const pkg of config.packages) {
 		  },
 		},
 	  });`
-    );
-    fs.writeFileSync(
-      `${__dirname}/../packages/${pkg.name}/shims.d.ts`,
-      `declare module '@cldcvr/flow-core';`
-    );
-  } catch (err) {
-    console.error(err);
+      );
+      fs.writeFileSync(
+        `${__dirname}/../packages/${pkg.name}/shims.d.ts`,
+        `declare module '@cldcvr/flow-core';`
+      );
+    } catch (err) {
+      console.error(err);
+    }
   }
 }
