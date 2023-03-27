@@ -60,6 +60,7 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
+        with:
           token: ${{ secrets.PUBLISH_TOKEN }}
           ref: main
 
@@ -86,6 +87,7 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
+        with:
           token: ${{ secrets.PUBLISH_TOKEN }}
           ref: main
 
