@@ -21,5 +21,6 @@
     "resolveJsonModule": true
   },
   "include": ["package-builder/**/*.ts"],
-  "exclude": ["node_modules", "packages"]
+  "exclude": ["node_modules", "packages"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -4,11 +4,13 @@
   "description": "This package contains free set icons to use in `@cldcvr/flow-core`",
   "private": true,
   "sideEffects": false,
-  "type": "module",
   "workspaces": [
     "packages/@cldcvr/*"
   ],
   "scripts": {
+    "storybook": "start-storybook -p 6013",
+    "start": "yarn storybook",
+    "build-storybook": "build-storybook",
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-packages": "ts-node-esm package-builder/create-packages.ts && yarn",
     "build-packages": "yarn workspaces run build",
@@ -33,7 +35,16 @@
     "prettier": "^2.7.1",
     "semver": "^7.3.8",
     "ts-node": "^10.9.1",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "@storybook/addon-actions": "^6.5.7",
+    "@storybook/addon-essentials": "^6.5.7",
+    "@storybook/addon-links": "^6.5.7",
+    "@storybook/addon-storysource": "^6.5.12",
+    "@storybook/builder-vite": "^0.1.36",
+    "@storybook/web-components": "^6.5.7",
+    "storybook-addon-themes": "^6.1.0",
+    "rollup-plugin-postcss-lit": "^2.0.0",
+    "rollup-plugin-scss": "3.0.0"
   },
   "peerDependencies": {
     "@cldcvr/flow-core": "*"
