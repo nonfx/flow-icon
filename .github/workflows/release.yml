@@ -48,6 +48,7 @@ jobs:
           yarn update-packages --${{ inputs.icon_pack }} --${{ inputs.update_type }}
           git add -A
           git commit -m "Icons updated by GithubActions"
+          git push origin main
 
   publish_to_npm:
     needs: update_icons
