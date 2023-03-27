@@ -46,8 +46,6 @@ jobs:
           git config user.name "${{ github.actor }}"
           git config user.email "vikas@cldcvr.com"
           yarn update-packages --${{ inputs.icon_pack }} --${{ inputs.update_type }}
-          git add -A
-          git commit -m "Icons updated by GithubActions"
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
