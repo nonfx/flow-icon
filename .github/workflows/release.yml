@@ -1,57 +1,12 @@
 name: Release
 
-on:  
-  workflow_dispatch:
-    inputs:
-      icon_pack:
-        description: 'Choose Icon pack to update'
-        required: true
-        default: 'all'
-        type: choice
-        options:
-        - all
-        - \@cldcvr/flow-system-icon
-        - \@cldcvr/flow-product-icon
-        - \@cldcvr/flow-gcp-icon
-        - \@cldcvr/flow-aws-icon
-      update_type:
-        description: 'Type of update'
-        required: true
-        default: 'minor'
-        type: choice
-        options:
-        - minor
-        - patch
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  update_icons:
-    name: Updating icons from figma
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js 16.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.x
-
-      - name: Install Dependencies
-        run: yarn
-      - name: "Update Packages"
-        env:
-          GH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "vikas@cldcvr.com"
-          yarn update-packages --${{ inputs.icon_pack }} --${{ inputs.update_type }}
-          git add -A
-          git commit -m "Icons updated by GithubActions"
-          git push origin main
-
   publish_to_npm:
-    needs: update_icons
     name: Publishing to npm registry
     runs-on: ubuntu-latest
     steps:
@@ -75,7 +30,6 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish_to_github:
-    needs: update_icons
     name: Publishing to github registry
     runs-on: ubuntu-latest
     steps:
