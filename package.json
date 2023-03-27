@@ -13,7 +13,7 @@
     "update-packages": "ts-node-esm package-builder/create-packages.ts && yarn",
     "build-packages": "yarn workspaces run build",
     "release": "yarn build-packages && yarn changeset publish",
-    "version": "yarn changeset version"
+    "version": "yarn update-packages && yarn changeset version"
   },
   "keywords": [
     "icons"

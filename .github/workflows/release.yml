@@ -1,9 +1,27 @@
 name: Release
 
-on:
-  push:
-    branches:
-      - main
+on:  
+  workflow_dispatch:
+    inputs:
+      icon_pack:
+        description: 'Choose Icon pack to update'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+        - all
+        - \@cldcvr/flow-system-icon
+        - \@cldcvr/flow-product-icon
+        - \@cldcvr/flow-gcp-icon
+        - \@cldcvr/flow-aws-icon
+      update_type:
+        description: 'Type of update'
+        required: true
+        default: 'minor'
+        type: choice
+        options:
+        - minor
+        - patch
 
 jobs:
   publish_to_npm:
@@ -20,6 +38,16 @@ jobs:
 
       - name: Install Dependencies
         run: yarn
+      - name: "Update Packages"
+        env:
+          GH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "vikas@cldcvr.com"
+          yarn update-packages --${{ inputs.icon_pack }} --${{ inputs.update_type }}
+          git add -A
+          git commit -m "Icons updated by GithubActions"
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
@@ -30,6 +58,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish_to_github:
+    needs: publish_to_npm
     name: Publishing to github registry
     runs-on: ubuntu-latest
     steps:
