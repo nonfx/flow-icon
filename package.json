@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "start": "yarn workspace icon-storybook start",
-    "build-stories": "cd packages/storybook && yarn && yarn build",
+    "build-stories": "yarn workspace icon-storybook build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-packages": "ts-node-esm package-builder/create-packages.ts && yarn",
     "build-packages": "yarn workspaces run build",

@@ -1,10 +1,10 @@
 import { LitElement } from "lit";
 import { html } from "lit-html";
 import { customElement } from "lit/decorators.js";
-import SystemIconPack from "@cldcvr/flow-system-icon/dist/types/icon-pack";
-import ProductIconPack from "@cldcvr/flow-product-icon/dist/types/icon-pack";
-import GcpIconPack from "@cldcvr/flow-gcp-icon/dist/types/icon-pack";
-import AwsIconPack from "@cldcvr/flow-aws-icon/dist/types/icon-pack";
+import SystemIconPack from "@cldcvr/flow-system-icon/icon-pack";
+import ProductIconPack from "@cldcvr/flow-product-icon/icon-pack";
+import GcpIconPack from "@cldcvr/flow-gcp-icon/icon-pack";
+import AwsIconPack from "@cldcvr/flow-aws-icon/icon-pack";
 
 @customElement("system-icons")
 export class SystemIconStoryElement extends LitElement {
