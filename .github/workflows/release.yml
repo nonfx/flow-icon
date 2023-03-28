@@ -22,10 +22,6 @@ on:
         options:
         - minor
         - patch
-defaults:
-  run:
-    shell: bash
-    working-directory: .
 env:
   DISTRIBUTION_ID: E1JYXHU7GFQMKF
   BUCKET_NAME: flow.cldcvr.com
