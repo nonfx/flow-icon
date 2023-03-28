@@ -137,9 +137,6 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.PUBLISH_TOKEN }}
-          ref: main
 
       - name: Setup Node.js 16.x
         uses: actions/setup-node@v2
