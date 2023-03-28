@@ -149,7 +149,7 @@ jobs:
       - name: Install Dependencies
         run:  export NODE_OPTIONS="--max_old_space_size=4096" && yarn
       - name: Build storybook
-        run: yarn run build-stories
+        run: cd packages/storybook && yarn && yarn build
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v1
         with:
