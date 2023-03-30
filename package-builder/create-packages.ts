@@ -33,7 +33,8 @@ const generatePackageJsonContents = (pkgName: string, version: string) => {
       types: "./dist/types/index.d.ts",
       scripts: {
         test: "echo 'Error: no test specified' && exit 1",
-        build: "vite build --emptyOutDir && tsc",
+        build:
+          "vite build --emptyOutDir && tsc && vite build --emptyOutDir --config vite.umd.config.ts",
         prepublishOnly: "yarn build",
       },
       keywords: ["icons"],
@@ -135,6 +136,30 @@ for (const pkg of config.packages) {
 			output: {
 			  globals: {
 				"@cldcvr/flow-core": "@cldcvr/flow-core",
+			  },
+			},
+		  },
+		},
+	  });`
+      );
+      fs.writeFileSync(
+        `${__dirname}/../packages/${pkg.name}/vite.umd.config.ts`,
+        `import { defineConfig } from "vite";
+
+	  export default defineConfig({
+		build: {
+		  lib: {
+			entry: "index.ts",
+			name: "${pkg.name}",
+			fileName: (format) => \`flow-icon.\${format}.js\`,
+			formats: ["umd"],
+		  },
+		   outDir: "umd",
+		  rollupOptions: {
+			external: ["@cldcvr/flow-core"],
+			output: {
+			  globals: {
+				"@cldcvr/flow-core": "flowCore",
 			  },
 			},
 		  },
