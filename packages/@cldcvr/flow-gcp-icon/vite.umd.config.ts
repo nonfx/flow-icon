@@ -4,7 +4,7 @@ import { defineConfig } from "vite";
 		build: {
 		  lib: {
 			entry: "index.ts",
-			name: "@cldcvr/flow-gcp-icon",
+			name: "flowGcpIcon",
 			fileName: (format) => `flow-icon.${format}.js`,
 			formats: ["umd"],
 		  },

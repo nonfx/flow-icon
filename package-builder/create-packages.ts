@@ -150,7 +150,7 @@ for (const pkg of config.packages) {
 		build: {
 		  lib: {
 			entry: "index.ts",
-			name: "${pkg.name}",
+			name: "${pkg.umdName}",
 			fileName: (format) => \`flow-icon.\${format}.js\`,
 			formats: ["umd"],
 		  },

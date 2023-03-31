@@ -4,7 +4,7 @@ import { defineConfig } from "vite";
 		build: {
 		  lib: {
 			entry: "index.ts",
-			name: "@cldcvr/flow-system-icon",
+			name: "flowSystemIcon",
 			fileName: (format) => `flow-icon.${format}.js`,
 			formats: ["umd"],
 		  },
