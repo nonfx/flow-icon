@@ -1,6 +1,6 @@
 {
   "name": "@cldcvr/flow-gcp-icon",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "This package contains free set icons to use in `@cldcvr/flow-core`",
   "main": "dist/flow-icon.es.js",
   "module": "dist/flow-icon.es.js",
