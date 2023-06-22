@@ -41,7 +41,7 @@ const generatePackageJsonContents = (pkgName: string, version: string) => {
       author: "@cldcvr",
       license: "MIT",
       dependencies: {
-        "@cldcvr/flow-core": "*",
+        "@cldcvr/flow-core-config": "^1.0.0",
       },
       devDependencies: {
         axios: "^0.27.2",
@@ -52,7 +52,7 @@ const generatePackageJsonContents = (pkgName: string, version: string) => {
         vite: "^3.0.4",
       },
       peerDependencies: {
-        "@cldcvr/flow-core": "*",
+        "@cldcvr/flow-core-config": "*",
       },
       repository: {
         type: "git",
@@ -132,10 +132,10 @@ for (const pkg of config.packages) {
 		  },
 		  // outDir: "dist",
 		  rollupOptions: {
-			external: ["@cldcvr/flow-core",/^lit/],
+			external: ["@cldcvr/flow-core-config",/^lit/],
 			output: {
 			  globals: {
-				"@cldcvr/flow-core": "@cldcvr/flow-core",
+				"@cldcvr/flow-core-config": "@cldcvr/flow-core-config",
 			  },
 			},
 		  },
@@ -156,19 +156,15 @@ for (const pkg of config.packages) {
 		  },
 		   outDir: "umd",
 		  rollupOptions: {
-			external: ["@cldcvr/flow-core"],
+			external: ["@cldcvr/flow-core-config"],
 			output: {
 			  globals: {
-				"@cldcvr/flow-core": "flowCore",
+				"@cldcvr/flow-core-config": "flowCore",
 			  },
 			},
 		  },
 		},
 	  });`
-      );
-      fs.writeFileSync(
-        `${__dirname}/../packages/${pkg.name}/shims.d.ts`,
-        `declare module '@cldcvr/flow-core';`
       );
     } catch (err) {
       console.error(err);

@@ -23,7 +23,7 @@ type IconUrl = {
 };
 export default async function downloadIcons(nodeId: string, pkg: string) {
   const indexFileImports = new Set();
-  indexFileImports.add('import { ConfigUtil } from "@cldcvr/flow-core" ;');
+  indexFileImports.add('import { ConfigUtil } from "@cldcvr/flow-core-config";');
   indexFileImports.add('import IconPack from "./icon-pack" ;');
 
   const iconPackExports = new Set();

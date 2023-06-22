@@ -17,31 +17,33 @@
   "author": "@cldcvr",
   "license": "MIT",
   "dependencies": {
-    "@cldcvr/flow-core": "*"
+    "@cldcvr/flow-core": "^1.17.1",
+    "@cldcvr/flow-core-config": "*",
+    "lit": "^2.7.5"
   },
   "devDependencies": {
     "@changesets/cli": "^2.25.0",
-    "@types/node": "^18.7.17",
-    "@types/prettier": "^2.7.0",
-    "axios": "^0.27.2",
-    "fs": "^0.0.1-security",
-    "lit-html": "^2.2.7",
-    "prettier": "^2.7.1",
-    "semver": "^7.3.8",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.7.4",
     "@storybook/addon-actions": "^6.5.7",
     "@storybook/addon-essentials": "^6.5.7",
     "@storybook/addon-links": "^6.5.7",
     "@storybook/addon-storysource": "^6.5.12",
     "@storybook/builder-vite": "^0.1.36",
     "@storybook/web-components": "^6.5.7",
-    "storybook-addon-themes": "^6.1.0",
+    "@types/node": "^18.7.17",
+    "@types/prettier": "^2.7.0",
+    "axios": "^0.27.2",
+    "fs": "^0.0.1-security",
+    "lit-html": "^2.2.7",
+    "prettier": "^2.7.1",
     "rollup-plugin-postcss-lit": "^2.0.0",
-    "rollup-plugin-scss": "3.0.0"
+    "rollup-plugin-scss": "3.0.0",
+    "semver": "^7.3.8",
+    "storybook-addon-themes": "^6.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
   },
   "peerDependencies": {
-    "@cldcvr/flow-core": "*"
+    "@cldcvr/flow-core-config": "*"
   },
   "repository": {
     "type": "git",
