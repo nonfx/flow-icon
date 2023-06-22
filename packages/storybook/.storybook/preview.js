@@ -2,10 +2,11 @@ import { html } from "lit-html";
 import "./storybook.css";
 import "@cldcvr/flow-core/dist/style.css";
 import "@cldcvr/flow-core";
-import "@cldcvr/flow-system-icon/index";
-import "@cldcvr/flow-product-icon/index";
-import "@cldcvr/flow-gcp-icon/index";
-import "@cldcvr/flow-aws-icon/index";
+
+import("@cldcvr/flow-system-icon/index");
+import("@cldcvr/flow-product-icon/index");
+import("@cldcvr/flow-gcp-icon/index");
+import("@cldcvr/flow-aws-icon/index");
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

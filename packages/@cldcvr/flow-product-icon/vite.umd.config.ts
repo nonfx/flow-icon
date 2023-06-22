@@ -10,10 +10,10 @@ import { defineConfig } from "vite";
 		  },
 		   outDir: "umd",
 		  rollupOptions: {
-			external: ["@cldcvr/flow-core"],
+			external: ["@cldcvr/flow-core-config"],
 			output: {
 			  globals: {
-				"@cldcvr/flow-core": "flowCore",
+				"@cldcvr/flow-core-config": "flowCore",
 			  },
 			},
 		  },

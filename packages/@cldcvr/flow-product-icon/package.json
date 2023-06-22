@@ -1,6 +1,6 @@
 {
   "name": "@cldcvr/flow-product-icon",
-  "version": "1.4.0",
+  "version": "1.6.0",
   "description": "This package contains free set icons to use in `@cldcvr/flow-core`",
   "main": "dist/flow-icon.es.js",
   "module": "dist/flow-icon.es.js",
@@ -16,7 +16,7 @@
   "author": "@cldcvr",
   "license": "MIT",
   "dependencies": {
-    "@cldcvr/flow-core": "*"
+    "@cldcvr/flow-core-config": "^1.0.0"
   },
   "devDependencies": {
     "axios": "^0.27.2",
@@ -27,7 +27,7 @@
     "vite": "^3.0.4"
   },
   "peerDependencies": {
-    "@cldcvr/flow-core": "*"
+    "@cldcvr/flow-core-config": "*"
   },
   "repository": {
     "type": "git",
