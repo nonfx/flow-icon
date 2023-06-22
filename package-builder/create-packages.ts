@@ -46,7 +46,6 @@ const generatePackageJsonContents = (pkgName: string, version: string) => {
       devDependencies: {
         axios: "^0.27.2",
         fs: "^0.0.1-security",
-        "lit-html": "^2.2.7",
         prettier: "^2.7.1",
         typescript: "^4.7.4",
         vite: "^3.0.4",

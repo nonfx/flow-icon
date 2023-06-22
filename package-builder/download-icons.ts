@@ -23,7 +23,9 @@ type IconUrl = {
 };
 export default async function downloadIcons(nodeId: string, pkg: string) {
   const indexFileImports = new Set();
-  indexFileImports.add('import { ConfigUtil } from "@cldcvr/flow-core-config";');
+  indexFileImports.add(
+    'import { ConfigUtil } from "@cldcvr/flow-core-config";'
+  );
   indexFileImports.add('import IconPack from "./icon-pack" ;');
 
   const iconPackExports = new Set();
@@ -103,7 +105,14 @@ export default async function downloadIcons(nodeId: string, pkg: string) {
                 promises.push(
                   getIconContent(url[1] as string).then(
                     (icon) => {
-                      const svgToJS = `import { html } from "lit-html"; \n export default html\`${icon.data}\`.strings.join("");`;
+                      const formattedIcon = prettier.format(icon.data, {
+                        printWidth: 100,
+                        singleQuote: true,
+                        tabWidth: 4,
+                        parser: "html",
+                      });
+
+                      const svgToJS = `export default \`${formattedIcon}\`;`;
                       const iconNameAsVariable = iconNameMapping[id].replaceAll(
                         "-",
                         "_"
