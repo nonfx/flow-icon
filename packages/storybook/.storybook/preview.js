@@ -1,7 +1,7 @@
 import { html } from "lit-html";
 import "./storybook.css";
 import "@cldcvr/flow-core/dist/style.css";
-import "@cldcvr/flow-core";
+import("@cldcvr/flow-core");
 
 import("@cldcvr/flow-system-icon/index");
 import("@cldcvr/flow-product-icon/index");

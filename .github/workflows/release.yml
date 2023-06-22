@@ -1,27 +1,27 @@
 name: Release
 
-on:  
+on:
   workflow_dispatch:
     inputs:
       icon_pack:
-        description: 'Choose Icon pack to update'
+        description: "Choose Icon pack to update"
         required: true
-        default: 'all'
+        default: "all"
         type: choice
         options:
-        - all
-        - \@cldcvr/flow-system-icon
-        - \@cldcvr/flow-product-icon
-        - \@cldcvr/flow-gcp-icon
-        - \@cldcvr/flow-aws-icon
+          - all
+          - \@cldcvr/flow-system-icon
+          - \@cldcvr/flow-product-icon
+          - \@cldcvr/flow-gcp-icon
+          - \@cldcvr/flow-aws-icon
       update_type:
-        description: 'Type of update'
+        description: "Type of update"
         required: true
-        default: 'minor'
+        default: "minor"
         type: choice
         options:
-        - minor
-        - patch
+          - minor
+          - patch
 defaults:
   run:
     shell: bash
@@ -104,9 +104,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
-          registry-url: 'https://npm.pkg.github.com'
+          registry-url: "https://npm.pkg.github.com"
           always-auth: true
-          scope: '@cldcvr'
+          scope: "@cldcvr"
 
       - name: Install Dependencies
         run: yarn
@@ -126,7 +126,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+
   deploy_to_storybook:
     needs: update_icons
     name: Deploying storybook
@@ -147,7 +147,7 @@ jobs:
           node-version: 16.x
 
       - name: Install Dependencies and Build storybook
-        run:  export NODE_OPTIONS="--max_old_space_size=4096" && yarn && yarn run build-stories
+        run: export NODE_OPTIONS="--max_old_space_size=4096" && yarn && yarn run build-stories
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -156,12 +156,12 @@ jobs:
 
       - name: Check Access
         run: |
-           aws sts get-caller-identity
+          aws sts get-caller-identity
 
       - name: Copy files to the website with the AWS CLI
         run: |
-           aws s3 sync packages/storybook/storybook-static/ s3://${{env.BUCKET_NAME}}/icons/
+          aws s3 sync packages/storybook/storybook-static/ s3://${{env.BUCKET_NAME}}/icons/
 
       - name: Invalidate CloudFront
         run: |
-           aws cloudfront create-invalidation --distribution-id ${{env.DISTRIBUTION_ID}} --paths "/*"
+          aws cloudfront create-invalidation --distribution-id ${{env.DISTRIBUTION_ID}} --paths "/*"
