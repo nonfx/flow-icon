@@ -1,4 +1,17 @@
-export default {
+export type PackageDetails = {
+  name: string;
+  umdName: string;
+  nodeId: string;
+};
+
+export type FigmaPackageConfig = {
+  packages: PackageDetails[];
+  figma: {
+    FIGMA_TOKEN?: string;
+    FILE_KEY?: string;
+  };
+};
+const config: FigmaPackageConfig = {
   packages: [
     {
       name: "@cldcvr/flow-system-icon",
@@ -21,8 +34,7 @@ export default {
       nodeId: "1:4",
     },
   ],
-  figma: {
-    FIGMA_TOKEN: "206330-1bbeb796-39d3-408e-ab7a-b6c8551111a5",
-    FILE_KEY: "pJ3o6QYVO5c9e8I2vtHklD",
-  },
+  figma: {},
 };
+
+export default config;

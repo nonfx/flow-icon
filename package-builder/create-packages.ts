@@ -14,6 +14,11 @@ const loadJSON = (path: string) =>
 const params = JSON.parse(process.env.npm_config_argv as string).original;
 const packageName = params[1].replace("--", "");
 const versionType = params[2].replace("--", "");
+const figmaToken = params[3].replace("--", "");
+const fileToken = params[4].replace("--", "");
+
+config.figma["FIGMA_TOKEN"] = figmaToken;
+config.figma["FILE_KEY"] = fileToken;
 /**
  *
  * @param pkgName The npm package name
