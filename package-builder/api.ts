@@ -2,7 +2,7 @@ import api from "axios";
 import config from "./config.js";
 
 const headers = {
-  "X-FIGMA-TOKEN": config.figma.FIGMA_TOKEN,
+  "X-FIGMA-TOKEN": config.figma.FIGMA_TOKEN as string,
 };
 /**
  * api endpoint for files
