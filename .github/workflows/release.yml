@@ -57,7 +57,7 @@ jobs:
         run: |
           git config user.name "${{ github.actor }}"
           git config user.email "vikas@cldcvr.com"
-          yarn update-packages --${{ inputs.icon_pack }} --${{ inputs.update_type }}
+          yarn update-packages --${{ inputs.icon_pack }} --${{ inputs.update_type }} --${{secrets.FIGMA_TOKEN}} --${{secrets.FILE_KEY}}
           git add -A
           git commit -m "Icons updated by GithubActions"
           git push origin main
