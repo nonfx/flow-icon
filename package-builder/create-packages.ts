@@ -76,7 +76,8 @@ const generatePackageJsonContents = (pkgName: string, version: string) => {
 /**
  * downloading icons
  */
-for (const pkg of config.packages) {
+for (let p = 0; p < config.packages.length; p++) {
+  const pkg = config.packages[p];
   if (packageName === pkg.name || packageName === "all") {
     console.log("Updating...", pkg.name, versionType);
     await downloadIcons(pkg.nodeId, pkg.name);

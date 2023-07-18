@@ -1,46 +1,51 @@
 import api from "axios";
 import config from "./config.js";
 
-const headers = {
-  "X-FIGMA-TOKEN": config.figma.FIGMA_TOKEN as string,
+const headers = () => {
+  return {
+    "X-FIGMA-TOKEN": config.figma.FIGMA_TOKEN as string,
+  };
 };
 /**
  * api endpoint for files
  *
  */
-const instanceFiles = api.create({
-  baseURL: `https://api.figma.com/v1/files/${config.figma.FILE_KEY}`,
-  headers,
-});
+const instanceFiles = () =>
+  api.create({
+    baseURL: `https://api.figma.com/v1/files/${config.figma.FILE_KEY}`,
+    headers: headers(),
+  });
 /**
  * api endpoint for styles
  *
  */
-const instanceStyles = api.create({
-  baseURL: `https://api.figma.com/v1/files/${config.figma.FILE_KEY}/styles`,
-  headers,
-});
+const instanceStyles = () =>
+  api.create({
+    baseURL: `https://api.figma.com/v1/files/${config.figma.FILE_KEY}/styles`,
+    headers: headers(),
+  });
 /**
  * api endpoint for images
  *
  */
-const instanceImages = api.create({
-  baseURL: `https://api.figma.com/v1/images/${config.figma.FILE_KEY}`,
-  headers,
-});
+const instanceImages = () =>
+  api.create({
+    baseURL: `https://api.figma.com/v1/images/${config.figma.FILE_KEY}`,
+    headers: headers(),
+  });
 /**
  * get Figma document info
  *
  * @return {Promise<Object>}
  */
-const getDocument = async () => instanceFiles.get("/");
+const getDocument = async () => instanceFiles().get("/");
 
 /**
  * get Figma style info
  *
  * @return {Promise<Object>}
  */
-const getStyles = async () => instanceStyles.get("/");
+const getStyles = async () => instanceStyles().get("/");
 
 /**
  * get Figma node info
@@ -48,8 +53,9 @@ const getStyles = async () => instanceStyles.get("/");
  * @param {string} nodeId
  * @return {Promise<Object>}
  */
-const getNode = async (nodeId: string) =>
-  instanceFiles.get(`/nodes?ids=${decodeURIComponent(nodeId)}`);
+const getNode = async (nodeId: string) => {
+  return instanceFiles().get(`/nodes?ids=${decodeURIComponent(nodeId)}`);
+};
 /**
  * get Figma node children
  *
@@ -59,7 +65,7 @@ const getNode = async (nodeId: string) =>
 const getNodeChildren = async (nodeId: string) => {
   const {
     data: { nodes },
-  } = await instanceFiles.get(`/nodes?ids=${decodeURIComponent(nodeId)}`);
+  } = await instanceFiles().get(`/nodes?ids=${decodeURIComponent(nodeId)}`);
   return nodes[nodeId].document.children;
 };
 /**
@@ -71,7 +77,7 @@ const getNodeChildren = async (nodeId: string) => {
 const getSvgImageUrl = async (nodeId: string) => {
   const {
     data: { images },
-  } = await instanceImages.get(
+  } = await instanceImages().get(
     `/?ids=${decodeURIComponent(nodeId)}&format=svg`
   );
   return images[nodeId];
@@ -85,7 +91,7 @@ const getSvgImageUrl = async (nodeId: string) => {
 const getAllSvgImageUrl = async (nodeId: string) => {
   const {
     data: { images },
-  } = await instanceImages.get(
+  } = await instanceImages().get(
     `/?ids=${decodeURIComponent(nodeId)}&format=svg`
   );
   return images;
