@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "lib": ["es2017", "dom", "dom.iterable", "ES2021.String"],
+    "declaration": false,
+    "outDir": "package-builder/dist",
+    "baseUrl": ".",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": false,
+    "skipLibCheck": true,
+    "target": "ESNext",
+    "resolveJsonModule": true
+  },
+  "include": ["package-builder/**/*.ts"],
+  "exclude": ["node_modules", "packages"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "@cldcvr/flow-aws-icon",
+  "version": "1.7.0",
+  "description": "This package contains free set icons to use in `@cldcvr/flow-core`",
+  "main": "dist/flow-icon.es.js",
+  "module": "dist/flow-icon.es.js",
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "test": "echo 'Error: no test specified' && exit 1",
+    "build": "vite build --emptyOutDir && tsc && vite build --emptyOutDir --config vite.umd.config.ts",
+    "prepublishOnly": "yarn build"
+  },
+  "keywords": [
+    "icons"
+  ],
+  "author": "@cldcvr",
+  "license": "MIT",
+  "dependencies": {
+    "@cldcvr/flow-core-config": "^1.0.0"
+  },
+  "devDependencies": {
+    "axios": "^0.27.2",
+    "fs": "^0.0.1-security",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.4"
+  },
+  "peerDependencies": {
+    "@cldcvr/flow-core-config": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://github.com/cldcvr/flow-icon.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}
