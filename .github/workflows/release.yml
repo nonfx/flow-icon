@@ -10,10 +10,10 @@ on:
         type: choice
         options:
           - all
-          - \@cldcvr/flow-system-icon
-          - \@cldcvr/flow-product-icon
-          - \@cldcvr/flow-gcp-icon
-          - \@cldcvr/flow-aws-icon
+          - \@ollion/flow-system-icon
+          - \@ollion/flow-product-icon
+          - \@ollion/flow-gcp-icon
+          - \@ollion/flow-aws-icon
       update_type:
         description: "Type of update"
         required: true
@@ -56,7 +56,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           git config user.name "${{ github.actor }}"
-          git config user.email "vikas@cldcvr.com"
+          git config user.email "vikas@ollion.com"
           yarn update-packages --${{ inputs.icon_pack }} --${{ inputs.update_type }} --${{secrets.FIGMA_TOKEN}} --${{secrets.FILE_KEY}}
           git add -A
           git commit -m "Icons updated by GithubActions"
@@ -88,44 +88,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  publish_to_github:
-    needs: publish_to_npm
-    name: Publishing to github registry
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.PUBLISH_TOKEN }}
-          ref: main
-
-      - name: Setup Node.js 16.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.x
-          registry-url: "https://npm.pkg.github.com"
-          always-auth: true
-          scope: "@cldcvr"
-
-      - name: Install Dependencies
-        run: yarn
-      - name: Creating .npmrc
-        run: |
-          cat << EOF > "$HOME/.npmrc"
-            //npm.pkg.github.com/:_authToken=$NPM_TOKEN
-          EOF
-        env:
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Create Release Pull Request or Publish to Github Packages
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          publish: yarn release --no-git-tag
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   deploy_to_storybook:
     needs: update_icons

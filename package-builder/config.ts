@@ -14,22 +14,22 @@ export type FigmaPackageConfig = {
 const config: FigmaPackageConfig = {
   packages: [
     {
-      name: "@cldcvr/flow-system-icon",
+      name: "@ollion/flow-system-icon",
       umdName: "flowSystemIcon",
       nodeId: "0:1",
     },
     {
-      name: "@cldcvr/flow-product-icon",
+      name: "@ollion/flow-product-icon",
       umdName: "flowProductIcon",
       nodeId: "1:2",
     },
     {
-      name: "@cldcvr/flow-gcp-icon",
+      name: "@ollion/flow-gcp-icon",
       umdName: "flowGcpIcon",
       nodeId: "1:3",
     },
     {
-      name: "@cldcvr/flow-aws-icon",
+      name: "@ollion/flow-aws-icon",
       umdName: "flowAwsIcon",
       nodeId: "1:4",
     },

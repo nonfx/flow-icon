@@ -1,7 +1,7 @@
 {
-  "name": "@cldcvr/flow-aws-icon",
-  "version": "1.9.0",
-  "description": "This package contains free set icons to use in `@cldcvr/flow-core`",
+  "name": "@ollion/flow-system-icon",
+  "version": "1.16.0",
+  "description": "This package contains free set icons to use in `@ollion/flow-core`",
   "main": "dist/flow-icon.es.js",
   "module": "dist/flow-icon.es.js",
   "types": "./dist/types/index.d.ts",
@@ -13,10 +13,10 @@
   "keywords": [
     "icons"
   ],
-  "author": "@cldcvr",
+  "author": "@ollion",
   "license": "MIT",
   "dependencies": {
-    "@cldcvr/flow-core-config": "^1.0.0"
+    "@ollion/flow-core-config": "^1.0.0"
   },
   "devDependencies": {
     "axios": "^0.27.2",
@@ -26,11 +26,11 @@
     "vite": "^3.0.4"
   },
   "peerDependencies": {
-    "@cldcvr/flow-core-config": "*"
+    "@ollion/flow-core-config": "*"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://github.com/cldcvr/flow-icon.git"
+    "url": "git+ssh://github.com/ollionorg/flow-icon.git"
   },
   "publishConfig": {
     "access": "public",
