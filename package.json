@@ -1,12 +1,12 @@
 {
-  "name": "@cldcvr/flow-icon",
+  "name": "@ollion/flow-icon",
   "version": "0.0.4",
-  "description": "This package contains free set icons to use in `@cldcvr/flow-core`",
+  "description": "This package contains free set icons to use in `@ollion/flow-core`",
   "private": true,
   "type": "module",
   "sideEffects": false,
   "workspaces": [
-    "packages/@cldcvr/*",
+    "packages/@ollion/*",
     "packages/storybook"
   ],
   "scripts": {
@@ -21,7 +21,7 @@
   "keywords": [
     "icons"
   ],
-  "author": "@cldcvr",
+  "author": "@ollion",
   "license": "MIT",
   "devDependencies": {
     "@changesets/cli": "^2.25.0",
@@ -38,7 +38,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://github.com/cldcvr/flow-icon.git"
+    "url": "git+ssh://github.com/ollionorg/flow-icon.git"
   },
   "publishConfig": {
     "access": "public",

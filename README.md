@@ -1,27 +1,27 @@
-## [Flow Icons](https://flow.cldcvr.com/v2/index.html?path=/docs/dependencies-icons--system-icons)
-Official icon library for `@cldcvr/flow-core` design system. Icons are downloaded from figma and packaged up and published to npm.
+## [Flow Icons](https://flow.ollion.com/icons/index.html)
+Official icon library for `@ollion/flow-core` design system. Icons are downloaded from figma and packaged up and published to npm.
 ### prerequisite
-make sure that you already installed `@cldcvr/flow-core` if not then run following command.
+make sure that you already installed `@ollion/flow-core` if not then run following command.
 ```
-yarn add @cldcvr/flow-core
+yarn add @ollion/flow-core
 ```
 
 ### Install one or multiple packages  
 ```
-yarn add @cldcvr/flow-system-icon
-yarn add @cldcvr/flow-product-icon
-yarn add @cldcvr/flow-aws-icon
-yarn add @cldcvr/flow-gcp-icon
+yarn add @ollion/flow-system-icon
+yarn add @ollion/flow-product-icon
+yarn add @ollion/flow-aws-icon
+yarn add @ollion/flow-gcp-icon
 ```
 
 ### Usage 
-Register installed icon pack in your applilcation startup file after importing `@cldcvr/flow-core` like below.
+Register installed icon pack in your applilcation startup file after importing `@ollion/flow-core` like below.
 ```JavaScript
-import("@cldcvr/flow-core").then(async () => {
-	await import("@cldcvr/flow-system-icon");
-	await import("@cldcvr/flow-product-icon");
-	await import("@cldcvr/flow-aws-icon");
-	await import("@cldcvr/flow-gcp-icon");
+import("@ollion/flow-core").then(async () => {
+	await import("@ollion/flow-system-icon");
+	await import("@ollion/flow-product-icon");
+	await import("@ollion/flow-aws-icon");
+	await import("@ollion/flow-gcp-icon");
   //your application startup code
 });
 ```
@@ -29,7 +29,7 @@ import("@cldcvr/flow-core").then(async () => {
 ### Development
 
 #### From Figma
-If you wish to create separate icon pack for `@cldcvr/flow-core` then fork this library follow these steps.
+If you wish to create separate icon pack for `@ollion/flow-core` then fork this library follow these steps.
 
 1. update `./figma/config.js` file with your respective figma icon file key and figma token. Learn figma api [here](https://www.figma.com/developers/api#files)
 2. update package name and version in `package.json`.
@@ -38,7 +38,7 @@ If you wish to create separate icon pack for `@cldcvr/flow-core` then fork this 
 
 #### Using Object
 If you don't have figma then you just need svg files.
-1. To create separate package refer any package from [this](https://github.com/cldcvr/flow-icon/tree/main/packages/%40cldcvr) directory.
+1. To create separate package refer any package from [this](https://github.com/ollionorg/flow-icon/tree/main/packages/%40ollion) directory.
 2. As you can see each icon has its respective file in svg folder, In similar way you need to create those many file for your icons.
 3. Import those files in `index.ts`
 4. Update `package.json` with respective package name.

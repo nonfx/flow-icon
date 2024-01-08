@@ -32,7 +32,7 @@ const generatePackageJsonContents = (pkgName: string, version: string) => {
       name: pkgName,
       version,
       description:
-        "This package contains free set icons to use in `@cldcvr/flow-core`",
+        "This package contains free set icons to use in `@ollion/flow-core`",
       main: "dist/flow-icon.es.js",
       module: "dist/flow-icon.es.js",
       types: "./dist/types/index.d.ts",
@@ -43,10 +43,10 @@ const generatePackageJsonContents = (pkgName: string, version: string) => {
         prepublishOnly: "yarn build",
       },
       keywords: ["icons"],
-      author: "@cldcvr",
+      author: "@ollion",
       license: "MIT",
       dependencies: {
-        "@cldcvr/flow-core-config": "^1.0.0",
+        "@ollion/flow-core-config": "^1.0.0",
       },
       devDependencies: {
         axios: "^0.27.2",
@@ -56,11 +56,11 @@ const generatePackageJsonContents = (pkgName: string, version: string) => {
         vite: "^3.0.4",
       },
       peerDependencies: {
-        "@cldcvr/flow-core-config": "*",
+        "@ollion/flow-core-config": "*",
       },
       repository: {
         type: "git",
-        url: "git+ssh://github.com/cldcvr/flow-icon.git",
+        url: "git+ssh://github.com/ollionorg/flow-icon.git",
       },
       publishConfig: {
         access: "public",
@@ -137,10 +137,10 @@ for (let p = 0; p < config.packages.length; p++) {
 		  },
 		  // outDir: "dist",
 		  rollupOptions: {
-			external: ["@cldcvr/flow-core-config",/^lit/],
+			external: ["@ollion/flow-core-config",/^lit/],
 			output: {
 			  globals: {
-				"@cldcvr/flow-core-config": "@cldcvr/flow-core-config",
+				"@ollion/flow-core-config": "@ollion/flow-core-config",
 			  },
 			},
 		  },
@@ -161,10 +161,10 @@ for (let p = 0; p < config.packages.length; p++) {
 		  },
 		   outDir: "umd",
 		  rollupOptions: {
-			external: ["@cldcvr/flow-core-config"],
+			external: ["@ollion/flow-core-config"],
 			output: {
 			  globals: {
-				"@cldcvr/flow-core-config": "flowCore",
+				"@ollion/flow-core-config": "flowCore",
 			  },
 			},
 		  },
