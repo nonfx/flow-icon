@@ -1,6 +1,6 @@
 {
   "name": "@ollion/flow-product-icon",
-  "version": "1.12.0",
+  "version": "1.12.1",
   "description": "This package contains free set icons to use in `@ollion/flow-core`",
   "main": "dist/flow-icon.es.js",
   "module": "dist/flow-icon.es.js",
