@@ -1,6 +1,6 @@
 {
   "name": "@ollion/flow-aws-icon",
-  "version": "1.9.1",
+  "version": "1.10.0",
   "description": "This package contains free set icons to use in `@ollion/flow-core`",
   "main": "dist/flow-icon.es.js",
   "module": "dist/flow-icon.es.js",
