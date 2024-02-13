@@ -84,10 +84,17 @@ for (let p = 0; p < config.packages.length; p++) {
     const pkgJsonFilePath = `${__dirname}/../packages/${pkg.name}/package.json`;
 
     try {
-      const packageJson = loadJSON(pkgJsonFilePath);
+      let packageJson;
+      try {
+        packageJson = loadJSON(pkgJsonFilePath);
+      } catch (e) {
+        console.warn("package.json not found", pkgJsonFilePath);
+      }
 
-      const newversion = semver.inc(packageJson.version, versionType);
-
+      const newversion = semver.inc(
+        packageJson?.version ?? "0.0.0",
+        versionType
+      );
       if (newversion) {
         fs.writeFileSync(
           pkgJsonFilePath,

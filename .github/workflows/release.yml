@@ -14,6 +14,7 @@ on:
           - \@ollion/flow-product-icon
           - \@ollion/flow-gcp-icon
           - \@ollion/flow-aws-icon
+          - \@ollion/flow-engineering-icon
       update_type:
         description: "Type of update"
         required: true

@@ -6,6 +6,7 @@ import("@ollion/flow-system-icon/index");
 import("@ollion/flow-product-icon/index");
 import("@ollion/flow-gcp-icon/index");
 import("@ollion/flow-aws-icon/index");
+import("@ollion/flow-engineering-icon/index");
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

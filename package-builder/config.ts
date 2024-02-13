@@ -33,6 +33,11 @@ const config: FigmaPackageConfig = {
       umdName: "flowAwsIcon",
       nodeId: "1:4",
     },
+    {
+      name: "@ollion/flow-engineering-icon",
+      umdName: "flowEngineeringIcon",
+      nodeId: "1270:641",
+    },
   ],
   figma: {},
 };
