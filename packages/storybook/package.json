@@ -31,7 +31,7 @@
     "@storybook/web-components": "^6.5.7",
     "@types/node": "^18.7.17",
     "@types/prettier": "^2.7.0",
-    "axios": "^0.27.2",
+    "axios": "^1.6.8",
     "fs": "^0.0.1-security",
     "lit-html": "^2.2.7",
     "prettier": "^2.7.1",
