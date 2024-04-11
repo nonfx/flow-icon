@@ -19,11 +19,11 @@
     "@ollion/flow-core-config": "^1.0.0"
   },
   "devDependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.6.8",
     "fs": "^0.0.1-security",
     "prettier": "^2.7.1",
     "typescript": "^4.7.4",
-    "vite": "^3.0.4"
+    "vite": "^5.2.8"
   },
   "peerDependencies": {
     "@ollion/flow-core-config": "*"
